@@ -14,6 +14,8 @@
 		"express": "^4.20.0",
 		"express-fileupload": "^1.1.9",
 		"gravatar": "^1.8.0",
+		"js-yaml": "^4.1.0",
+		"json-schema-ref-parser": "^8.0.0",
 		"jsonwebtoken": "^9.0.0",
 		"knex": "2.4.2",
 		"liquidjs": "10.6.1",

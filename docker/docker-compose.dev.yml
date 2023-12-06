@@ -40,6 +40,7 @@ services:
       - npm_data:/data
       - le_data:/etc/letsencrypt
       - './dev/resolv.conf:/etc/resolv.conf:ro'
+      - ../localconfig:/ext/appsec
       - ../backend:/app
       - ../frontend:/app/frontend
       - ../global:/app/global
