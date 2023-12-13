@@ -11,3 +11,15 @@ Website and Docs: nginxproxymanager.com      Github: www.github.com/NginxProxyMa
 This new integration not only closes the security gap caused by the soon-end-of-life ModSecurity but provides a modern, strong protection alternative in the form of open-appsec, a preemptive, machine-learning-based, fully automatic WAF that does not rely on signatures at all.
 While developing this integration we focused on maximum simplicity to maintain the low entry barrier of the NGINX proxy manager (NPM) project.
 The actual deployment of NPM with open-appsec is performed using a slightly enhanced docker-compose file (see below) and configuring open-appsec can be done from an enhanced NPM Web UI interface to which the relevant configuration options for the open-appsec WAF, as well as an option to view the open-appsec logs, were added.
+
+# Contributing
+We welcome everyone that wishes to share their knowledge and expertise to enhance and expand the project.
+
+Please see the [Contributing Guidelines](https://github.com/openappsec/openappsec/blob/main/CONTRIBUTING.md).
+
+# License
+open-appsec is open source and available under Apache 2.0 license.
+
+The basic ML model is open source and available under Apache 2.0 license.
+
+The advanced ML model is open source and available under Machine Learning Model license, available upon download in the tar file.
