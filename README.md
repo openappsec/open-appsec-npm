@@ -43,7 +43,7 @@ The resulting architecture with the open-appsec Agent container and the NGINX Pr
 Documentation: https://docs.openappsec.io/integrations/nginx-proxy-manager-integration
 
 # Deployment Step-by-Step:
-Before you start, make sure to have a Linux environment with Docker and Docker Compose suitable with version 3.8 available.
+Before you start, make sure to have a Linux environment with Docker and Docker Compose suitable with version 3.3 available.
 To deploy NGINX Proxy Manager with open-appsec integration follow the steps below:
 1. Within the directory which you want to use for the deployment:
 Create a folder appsec-localconfig which will hold the appsec declarative configuration file (this will be managed by the enhanced NPM WebUI)
@@ -59,11 +59,14 @@ wget https://raw.githubusercontent.com/openappsec/open-appsec-npm/main/deploymen
 ```
 wget https://raw.githubusercontent.com/openappsec/open-appsec-npm/main/deployment/docker-compose.yaml
 ```
-4. Run docker-compose up to start the deployment of all relevant containers:
+4. Edit the docker-compose.yaml file and replace "user@email.com" with your own email address, so we can provide assistance in case of any issues with the specific deployment in the future and provide information proactively regarding open-appsec.
+This is an optional parameter and can be removed. If we send automatic emails there will also be an opt-out option included for receiving similar communication in the future."
+
+6. Run docker-compose up to start the deployment of all relevant containers:
 ```
 docker-compose up -d
 ```
-5. Check if the nginx-proxy-manager-attachment and the appsec-agent containers are up and running:
+6. Check if the nginx-proxy-manager-attachment and the appsec-agent containers are up and running:
 ```
 docker ps
 ```
@@ -104,7 +107,8 @@ Note: Changes in the open-appsec configuration performed and saved in the NPM We
 This was just a very basic overview to get you started, there's many more things you can configure as part of the open-appsec NGINX Proxy Manager integration.
 
 If you want to check out the open-appsec Security Logs click on the new menu option “Security Log” which allows you to view the open-appsec specific logs directly from the NPM Web UI:
-![image](https://github.com/openappsec/open-appsec-npm/assets/126462046/c30a9f27-9d27-47ab-b9e5-901b332f81fa)
+![image](https://github.com/openappsec/open-appsec-npm/assets/126462046/76b9eec3-1125-428a-99c3-7c183da9a658)
+
 
 **You find the full documentation including FAQ here:  
 https://docs.openappsec.io/integrations/nginx-proxy-manager-integration/**
