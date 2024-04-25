@@ -106,7 +106,7 @@ const internalProxyHost = {
 						return row;
 					})
 					.catch((err) => {
-						console.log("Error generating openappsec config: " + err);
+						console.log("Error generating openappsec config: " + err + err.stack);
 						// throw new error.ConfigurationError(err.message);
 					});
 			})
@@ -191,7 +191,7 @@ const internalProxyHost = {
 						return row;
 					})
 					.catch((err) => {
-						console.log("Error generating openappsec config: " + err);
+						console.log("Error generating openappsec config: " + err + err.stack);
 						// throw new error.ConfigurationError(err.message);
 					});
 			})
