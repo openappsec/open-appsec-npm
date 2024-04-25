@@ -15,9 +15,9 @@ version: '3.3'
 # docker compose for npm open-appsec integration
 
 services:
-  appsec-npm:
-    container_name: npm-attachment
-    image: 'ghcr.io/openappsec/nginx-proxy-manager-attachment:latest'
+  npm-centrally-managed-attachment:
+    container_name: npm-centrally-managed-attachment
+    image: 'ghcr.io/openappsec/nginx-proxy-manager-centrally-managed-attachment:latest'
     ipc: host
     restart: unless-stopped
     ports:
@@ -27,23 +27,18 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
-      - ./appsec-logs:/ext/appsec-logs
-      - ./appsec-localconfig:/ext/appsec
 
   appsec-agent:
     container_name: appsec-agent
     image: 'ghcr.io/openappsec/agent:latest'
-    network_mode: service:appsec-npm
     ipc: host
     restart: unless-stopped
     environment:
       # adjust with your own email below
       - user_email=user@email.com
       - nginxproxymanager=true
-      - autoPolicyLoad=true
     volumes:
       - ./appsec-config:/etc/cp/conf
       - ./appsec-data:/etc/cp/data
       - ./appsec-logs:/var/log/nano_agent
-      - ./appsec-localconfig:/ext/appsec
-    command: /cp-nano-agent --standalone
+    command: /cp-nano-agent --token <TOKEN>  # replace <TOKEN> with your own token below
