@@ -100,7 +100,7 @@ const internalProxyHost = {
 						return row;
 					})
 					.catch((err) => {
-						console.log("Error generating openappsec config: " + err);
+						console.log("Error generating openappsec config: " + err + err.stack);
 						// throw new error.ConfigurationError(err.message);
 					});
 			})
@@ -185,7 +185,7 @@ const internalProxyHost = {
 						return row;
 					})
 					.catch((err) => {
-						console.log("Error generating openappsec config: " + err);
+						console.log("Error generating openappsec config: " + err + err.stack);
 						// throw new error.ConfigurationError(err.message);
 					});
 			})
@@ -260,7 +260,7 @@ const internalProxyHost = {
 					.query()
 					.where('is_deleted', 0)
 					.andWhere('id', data.id)
-					.allowGraph('[owner,access_list,access_list.[clients,items],certificate]')
+					.allowGraph('[owner,access_list.[clients,items],certificate]')
 					.first();
 
 				if (access_data.permission_visibility !== 'all') {
