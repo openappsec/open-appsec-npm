@@ -308,7 +308,7 @@ dns_google_domains_zone = "example.com"`,
 	infomaniak: {
 		display_name:        'Infomaniak',
 		package_name:        'certbot-dns-infomaniak',
-		version_requirement: '~=0.1.12',
+		version_requirement: '~=0.2.2',
 		dependencies:        '',
 		credentials:         'dns_infomaniak_token = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 		full_plugin_name:    'dns-infomaniak',
