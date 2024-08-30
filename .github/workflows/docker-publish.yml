@@ -61,6 +61,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Run frontend build script file
+        run: |
+          chmod +x ./scripts/ci/frontend-build
+          ./scripts/ci/frontend-build
+        shell: bash
+
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
