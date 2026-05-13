@@ -527,6 +527,39 @@
 	"proxy-hosts.count": {
 		"defaultMessage": "{count} {count, plural, one {Host Proxy} other {Host Proxy}}"
 	},
+	"proxy-hosts.form.openappsec.confidence": {
+		"defaultMessage": "Minimum Confidence"
+	},
+	"proxy-hosts.form.openappsec.confidence.critical": {
+		"defaultMessage": "Critical"
+	},
+	"proxy-hosts.form.openappsec.confidence.high": {
+		"defaultMessage": "High"
+	},
+	"proxy-hosts.form.openappsec.confidence.low": {
+		"defaultMessage": "Low"
+	},
+	"proxy-hosts.form.openappsec.confidence.medium": {
+		"defaultMessage": "Medium"
+	},
+	"proxy-hosts.form.openappsec.enable": {
+		"defaultMessage": "Enable open-appsec Protection"
+	},
+	"proxy-hosts.form.openappsec.mode": {
+		"defaultMessage": "Mode"
+	},
+	"proxy-hosts.form.openappsec.mode.detect-learn": {
+		"defaultMessage": "Detect-Learn"
+	},
+	"proxy-hosts.form.openappsec.mode.inactive": {
+		"defaultMessage": "Inactive"
+	},
+	"proxy-hosts.form.openappsec.mode.prevent-learn": {
+		"defaultMessage": "Prevent-Learn"
+	},
+	"proxy-hosts.form.openappsec.tab": {
+		"defaultMessage": "open-appsec"
+	},
 	"public": {
 		"defaultMessage": "Publik"
 	},

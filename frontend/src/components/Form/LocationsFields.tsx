@@ -7,6 +7,8 @@ import type { ProxyLocation } from "src/api/backend";
 import { intl, T } from "src/locale";
 import styles from "./LocationsFields.module.css";
 
+type LocationFieldValue = string | number | boolean;
+
 interface Props {
 	initialValues: ProxyLocation[];
 	name?: string;
@@ -22,6 +24,9 @@ export function LocationsFields({ initialValues, name = "locations" }: Props) {
 		forwardScheme: "http",
 		forwardHost: "",
 		forwardPort: 80,
+		useOpenappsec: false,
+		openappsecMode: "detect-learn",
+		minimumConfidence: "high",
 	};
 
 	const toggleAdvVisible = (idx: number) => {
@@ -38,7 +43,7 @@ export function LocationsFields({ initialValues, name = "locations" }: Props) {
 		setFormField(newValues);
 	};
 
-	const handleChange = (idx: number, field: string, fieldValue: string) => {
+	const handleChange = (idx: number, field: string, fieldValue: LocationFieldValue) => {
 		const newValues = values.map((v: ProxyLocation, i: number) => (i === idx ? { ...v, [field]: fieldValue } : v));
 		setValues(newValues);
 		setFormField(newValues);
@@ -159,6 +164,108 @@ export function LocationsFields({ initialValues, name = "locations" }: Props) {
 										minHeight: "170px",
 									}}
 								/>
+								<div className="mt-3">
+									<label
+										className="row mb-2"
+										htmlFor={`location-${idx}-use-openappsec`}
+									>
+										<span className="col">
+											<T id="proxy-hosts.form.openappsec.enable" />
+										</span>
+										<span className="col-auto">
+											<label className="form-check form-check-single form-switch">
+												<input
+													id={`location-${idx}-use-openappsec`}
+													className={cn("form-check-input", {
+														"bg-lime": !!item.useOpenappsec,
+													})}
+													type="checkbox"
+													checked={!!item.useOpenappsec}
+													onChange={(e) =>
+														handleChange(idx, "useOpenappsec", e.target.checked)
+													}
+												/>
+											</label>
+										</span>
+									</label>
+									<div className="row">
+										<div className="col-md-6">
+											<div className="mb-3">
+												<label
+													className="form-label"
+													htmlFor={`location-${idx}-openappsec-mode`}
+												>
+													<T id="proxy-hosts.form.openappsec.mode" />
+												</label>
+												<select
+													id={`location-${idx}-openappsec-mode`}
+													className="form-control"
+													disabled={!item.useOpenappsec}
+													value={item.openappsecMode || "detect-learn"}
+													onChange={(e) =>
+														handleChange(idx, "openappsecMode", e.target.value)
+													}
+												>
+													<option value="inactive">
+														{intl.formatMessage({
+															id: "proxy-hosts.form.openappsec.mode.inactive",
+														})}
+													</option>
+													<option value="detect-learn">
+														{intl.formatMessage({
+															id: "proxy-hosts.form.openappsec.mode.detect-learn",
+														})}
+													</option>
+													<option value="prevent-learn">
+														{intl.formatMessage({
+															id: "proxy-hosts.form.openappsec.mode.prevent-learn",
+														})}
+													</option>
+												</select>
+											</div>
+										</div>
+										<div className="col-md-6">
+											<div className="mb-3">
+												<label
+													className="form-label"
+													htmlFor={`location-${idx}-minimum-confidence`}
+												>
+													<T id="proxy-hosts.form.openappsec.confidence" />
+												</label>
+												<select
+													id={`location-${idx}-minimum-confidence`}
+													className="form-control"
+													disabled={!item.useOpenappsec}
+													value={item.minimumConfidence || "high"}
+													onChange={(e) =>
+														handleChange(idx, "minimumConfidence", e.target.value)
+													}
+												>
+													<option value="low">
+														{intl.formatMessage({
+															id: "proxy-hosts.form.openappsec.confidence.low",
+														})}
+													</option>
+													<option value="medium">
+														{intl.formatMessage({
+															id: "proxy-hosts.form.openappsec.confidence.medium",
+														})}
+													</option>
+													<option value="high">
+														{intl.formatMessage({
+															id: "proxy-hosts.form.openappsec.confidence.high",
+														})}
+													</option>
+													<option value="critical">
+														{intl.formatMessage({
+															id: "proxy-hosts.form.openappsec.confidence.critical",
+														})}
+													</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						)}
 						<div className="mt-1">

@@ -103,6 +103,9 @@ export interface ProxyLocation {
 	forwardScheme: string;
 	forwardHost: string;
 	forwardPort: number;
+	useOpenappsec?: boolean;
+	minimumConfidence?: "low" | "medium" | "high" | "critical";
+	openappsecMode?: "inactive" | "detect-learn" | "prevent-learn";
 }
 
 export interface ProxyHost {
@@ -128,6 +131,9 @@ export interface ProxyHost {
 	hstsEnabled: boolean;
 	hstsSubdomains: boolean;
 	trustForwardedProto: boolean;
+	useOpenappsec?: boolean;
+	minimumConfidence?: "low" | "medium" | "high" | "critical";
+	openappsecMode?: "inactive" | "detect-learn" | "prevent-learn";
 	// Expansions:
 	owner?: User;
 	accessList?: AccessList;

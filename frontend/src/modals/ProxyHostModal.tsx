@@ -13,6 +13,7 @@ import {
 	Loading,
 	LocationsFields,
 	NginxConfigField,
+	OpenAppsecFields,
 	SSLCertificateField,
 	SSLOptionsFields,
 } from "src/components";
@@ -89,6 +90,10 @@ const ProxyHostModal = EasyModal.create(({ id, visible, remove }: Props) => {
 							hstsEnabled: data?.hstsEnabled || false,
 							hstsSubdomains: data?.hstsSubdomains || false,
 							trustForwardedProto: data?.trustForwardedProto || false,
+							// open-appsec tab
+							useOpenappsec: data?.useOpenappsec || false,
+							openappsecMode: data?.openappsecMode || "detect-learn",
+							minimumConfidence: data?.minimumConfidence || "high",
 							// Advanced tab
 							advancedConfig: data?.advancedConfig || "",
 							meta: data?.meta || {},
@@ -143,6 +148,18 @@ const ProxyHostModal = EasyModal.create(({ id, visible, remove }: Props) => {
 													role="tab"
 												>
 													<T id="column.ssl" />
+												</a>
+											</li>
+											<li className="nav-item" role="presentation">
+												<a
+													href="#tab-openappsec"
+													className="nav-link"
+													data-bs-toggle="tab"
+													aria-selected="false"
+													tabIndex={-1}
+													role="tab"
+												>
+													<T id="proxy-hosts.form.openappsec.tab" />
 												</a>
 											</li>
 											<li className="nav-item ms-auto" role="presentation">
@@ -341,6 +358,9 @@ const ProxyHostModal = EasyModal.create(({ id, visible, remove }: Props) => {
 													allowNew
 												/>
 												<SSLOptionsFields color="bg-lime" forProxyHost={true} />
+											</div>
+											<div className="tab-pane" id="tab-openappsec" role="tabpanel">
+												<OpenAppsecFields color="bg-lime" />
 											</div>
 											<div className="tab-pane" id="tab-advanced" role="tabpanel">
 												<NginxConfigField />
