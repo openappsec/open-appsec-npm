@@ -9,9 +9,8 @@ import deadHostsRoutes from "./nginx/dead_hosts.js";
 import proxyHostsRoutes from "./nginx/proxy_hosts.js";
 import redirectionHostsRoutes from "./nginx/redirection_hosts.js";
 import streamsRoutes from "./nginx/streams.js";
-// TODO Phase 2: convert openappsec routes (and their CommonJS deps) to ESM and re-enable
-// import openappsecLogRoutes from "./openappsec-log.js";
-// import openappsecSettingsRoutes from "./openappsec-settings.js";
+import openappsecLogRoutes from "./openappsec-log.js";
+import openappsecSettingsRoutes from "./openappsec-settings.js";
 import reportsRoutes from "./reports.js";
 import schemaRoutes from "./schema.js";
 import settingsRoutes from "./settings.js";
@@ -48,12 +47,10 @@ router.use("/schema", schemaRoutes);
 router.use("/tokens", tokensRoutes);
 router.use("/users", usersRoutes);
 router.use("/audit-log", auditLogRoutes);
-// TODO Phase 2: convert openappsec routes (and their CommonJS deps) to ESM and re-enable
-// router.use("/openappsec-log", openappsecLogRoutes);
+router.use("/openappsec-log", openappsecLogRoutes);
 router.use("/reports", reportsRoutes);
 router.use("/settings", settingsRoutes);
-// TODO Phase 2: convert openappsec routes (and their CommonJS deps) to ESM and re-enable
-// router.use("/openappsec-settings", openappsecSettingsRoutes);
+router.use("/openappsec-settings", openappsecSettingsRoutes);
 router.use("/version", versionRoutes);
 router.use("/nginx/proxy-hosts", proxyHostsRoutes);
 router.use("/nginx/redirection-hosts", redirectionHostsRoutes);

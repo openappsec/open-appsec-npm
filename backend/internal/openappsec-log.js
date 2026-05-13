@@ -1,14 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-const util = require('util');
-const error = require('../lib/error');
-const { APPSEC_LOG_DIR } = require('../lib/constants');
+import fs from "node:fs";
+import path from "node:path";
+import readline from "node:readline";
+import constants from "../lib/constants.js";
+
+const { APPSEC_LOG_DIR } = constants;
 
 const internalOpenappsecLog = {
 
 	countTotalLines: async function (directoryPath) {
 		const files = await fs.promises.readdir(directoryPath);
-		const logFiles = files.filter(file => path.extname(file).startsWith('.log'));
+		const logFiles = files.filter(file => path.extname(file).startsWith(".log"));
 
 		let totalLineCount = 0;
 
@@ -19,7 +20,7 @@ const internalOpenappsecLog = {
 			const readStream = fs.createReadStream(filePath);
 			const rl = readline.createInterface({ input: readStream });
 			const firstLine = await new Promise(resolve => {
-				rl.on('line', line => {
+				rl.on("line", line => {
 					rl.close();
 					resolve(line);
 				});
@@ -33,8 +34,8 @@ const internalOpenappsecLog = {
 			}
 
 			// If the first line is a data line, read the rest of the file
-			const content = await fs.promises.readFile(filePath, 'utf8');
-			const lines = content.split('\n');
+			const content = await fs.promises.readFile(filePath, "utf8");
+			const lines = content.split("\n");
 			totalLineCount += lines.length;
 		}
 
@@ -42,8 +43,8 @@ const internalOpenappsecLog = {
 	},
 
 	processFile: async function (filePath) {
-		const content = await fs.promises.readFile(filePath, 'utf8');
-		const lines = content.split('\n');
+		const content = await fs.promises.readFile(filePath, "utf8");
+		const lines = content.split("\n");
 		const dataLines = [];
 
 		for (const line of lines) {
@@ -84,17 +85,17 @@ const internalOpenappsecLog = {
 
 
 	getAll: function (access, expand, search_query) {
-		return access.can('auditlog:list')
+		return access.can("auditlog:list")
 			.then(async () => {
 				const directoryPath = APPSEC_LOG_DIR;
 				const files = await fs.promises.readdir(directoryPath);
-				const logFiles = files.filter(file => path.extname(file).startsWith('.log'));
+				const logFiles = files.filter(file => path.extname(file).startsWith(".log"));
 
 				// Sort the logFiles array
 				logFiles.sort((a, b) => {
 					const baseA = path.basename(a, path.extname(a));
 					const baseB = path.basename(b, path.extname(b));
-					return baseA.localeCompare(baseB, undefined, { numeric: true, sensitivity: 'base' });
+					return baseA.localeCompare(baseB, undefined, { numeric: true, sensitivity: "base" });
 				});
 
 				const wrappedObjects = [];
@@ -109,19 +110,19 @@ const internalOpenappsecLog = {
 	},
 
 	getPage: function (access, expand, search_query, page, perPage) {
-		return access.can('auditlog:list')
+		return access.can("auditlog:list")
 			.then(async () => {
 				const directoryPath = APPSEC_LOG_DIR;
 				let totalDataLines = await this.countTotalLines(directoryPath);
 
 				const files = await fs.promises.readdir(directoryPath);
-				const logFiles = files.filter(file => path.extname(file).startsWith('.log'));
+				const logFiles = files.filter(file => path.extname(file).startsWith(".log"));
 
 				// Sort the logFiles array
 				logFiles.sort((a, b) => {
 					const baseA = path.basename(a, path.extname(a));
 					const baseB = path.basename(b, path.extname(b));
-					return baseA.localeCompare(baseB, undefined, { numeric: true, sensitivity: 'base' });
+					return baseA.localeCompare(baseB, undefined, { numeric: true, sensitivity: "base" });
 				});
 
 				const wrappedObjects = [];
@@ -149,4 +150,4 @@ const internalOpenappsecLog = {
 	},
 };
 
-module.exports = internalOpenappsecLog;
+export default internalOpenappsecLog;

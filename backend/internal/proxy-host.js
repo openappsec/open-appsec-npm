@@ -308,7 +308,7 @@ const internalProxyHost = {
 					thisRow.openappsec_mode = result.mode;
 					thisRow.minimum_confidence = result.minimum_confidence;
 				} catch (e) {
-					console.log(`Error reading openappsec config file: ${e}`);
+					logger.error(`Error reading openappsec config file: ${e}`);
 				}
 
 				return thisRow;
@@ -513,7 +513,7 @@ const internalProxyHost = {
 				rows[idx].minimum_confidence = result.minimum_confidence;
 			});
 		} catch (e) {
-			console.log(`Error reading openappsec config file: ${e}`);
+			logger.error(`Error reading openappsec config file: ${e}`);
 		}
 
 		if (typeof expand !== "undefined" && expand !== null && expand.indexOf("certificate") !== -1) {
