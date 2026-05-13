@@ -8,7 +8,7 @@ interface Props {
 	data: OpenAppsecLogEntry[];
 	isFetching?: boolean;
 	variant: ColumnVariant;
-	onSelectRow: (index: number) => void;
+	onSelectRow: (entry: OpenAppsecLogEntry) => void;
 }
 
 export default function Table({ data, isFetching, variant, onSelectRow }: Props) {

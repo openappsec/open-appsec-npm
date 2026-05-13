@@ -30,15 +30,9 @@ export default function TableWrapper({ variant, filter }: Props) {
 		});
 	}, [data, filter]);
 
-	const handleSelectRow = useCallback(
-		(index: number) => {
-			const entry = rows[index];
-			if (entry) {
-				showOpenAppsecLogDetailsModal(entry);
-			}
-		},
-		[rows],
-	);
+	const handleSelectRow = useCallback((entry: OpenAppsecLogEntry) => {
+		showOpenAppsecLogDetailsModal(entry);
+	}, []);
 
 	if (isLoading) {
 		return <LoadingPage />;

@@ -7,7 +7,7 @@ export type ColumnVariant = "summary" | "detailed";
 
 interface BuildColumnsOptions {
 	variant: ColumnVariant;
-	onSelectRow: (index: number) => void;
+	onSelectRow: (entry: OpenAppsecLogEntry) => void;
 }
 
 const columnHelper = createColumnHelper<OpenAppsecLogEntry>();
@@ -19,13 +19,16 @@ const renderText = (value: unknown): React.ReactNode => {
 	return String(value);
 };
 
-const detailsButton = (rowIndex: number, onSelectRow: (i: number) => void) => (
+const detailsButton = (
+	entry: OpenAppsecLogEntry,
+	onSelectRow: (entry: OpenAppsecLogEntry) => void,
+) => (
 	<button
 		type="button"
 		className="btn btn-action btn-sm px-1"
 		onClick={(e) => {
 			e.preventDefault();
-			onSelectRow(rowIndex);
+			onSelectRow(entry);
 		}}
 	>
 		<T id="openappsec-log.col.details" />
@@ -118,7 +121,7 @@ export function buildColumns({
 	const detailsAction: ColumnDef<OpenAppsecLogEntry, any> = columnHelper.display({
 		id: "details",
 		header: () => null,
-		cell: (info) => detailsButton(info.row.index, onSelectRow),
+		cell: (info) => detailsButton(info.row.original, onSelectRow),
 		meta: { className: "text-end w-1" },
 	});
 
