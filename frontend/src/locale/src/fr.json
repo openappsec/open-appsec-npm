@@ -461,8 +461,65 @@
 	"online": {
 		"defaultMessage": "En ligne"
 	},
-	"openappsec-log.coming-soon": {
-		"defaultMessage": "La visionneuse de journaux open-appsec arrive bientôt."
+	"openappsec-log.col.action": {
+		"defaultMessage": "Action"
+	},
+	"openappsec-log.col.details": {
+		"defaultMessage": "Détails"
+	},
+	"openappsec-log.col.event-name": {
+		"defaultMessage": "Événement"
+	},
+	"openappsec-log.col.host": {
+		"defaultMessage": "Hôte"
+	},
+	"openappsec-log.col.incident-type": {
+		"defaultMessage": "Type d'incident"
+	},
+	"openappsec-log.col.matched-location": {
+		"defaultMessage": "Emplacement détecté"
+	},
+	"openappsec-log.col.matched-parameter": {
+		"defaultMessage": "Paramètre détecté"
+	},
+	"openappsec-log.col.matched-sample": {
+		"defaultMessage": "Échantillon détecté"
+	},
+	"openappsec-log.col.method": {
+		"defaultMessage": "Méthode"
+	},
+	"openappsec-log.col.service": {
+		"defaultMessage": "Service"
+	},
+	"openappsec-log.col.severity": {
+		"defaultMessage": "Sévérité"
+	},
+	"openappsec-log.col.source-ip": {
+		"defaultMessage": "IP Source"
+	},
+	"openappsec-log.col.time": {
+		"defaultMessage": "Heure"
+	},
+	"openappsec-log.col.uri": {
+		"defaultMessage": "Chemin URI"
+	},
+	"openappsec-log.details.raw": {
+		"defaultMessage": "Brut"
+	},
+	"openappsec-log.details.title": {
+		"defaultMessage": "Détails de l'entrée de journal"
+	},
+	"openappsec-log.tab.all": {
+		"defaultMessage": "Tous"
+	},
+	"openappsec-log.tab.detailed": {
+		"defaultMessage": "Détaillé"
+	},
+	"openappsec-log.tab.important": {
+		"defaultMessage": "Important"
+	},
+	"openappsec-log.tab.notifications": {
+		"defaultMessage": "Notifications"
 	},
 	"openappsec-log.title": {
 		"defaultMessage": "Journaux open-appsec"

@@ -5,6 +5,7 @@ export * from "./DeadHostModal";
 export * from "./DeleteConfirmModal";
 export * from "./DNSCertificateModal";
 export * from "./EventDetailsModal";
+export * from "./OpenAppsecLogDetailsModal";
 export * from "./HelpModal";
 export * from "./HTTPCertificateModal";
 export * from "./PermissionsModal";

@@ -488,8 +488,65 @@
 	"online": {
 		"defaultMessage": "Онлайн"
 	},
-	"openappsec-log.coming-soon": {
-		"defaultMessage": "The open-appsec log viewer is coming soon."
+	"openappsec-log.col.action": {
+		"defaultMessage": "Action"
+	},
+	"openappsec-log.col.details": {
+		"defaultMessage": "Details"
+	},
+	"openappsec-log.col.event-name": {
+		"defaultMessage": "Event"
+	},
+	"openappsec-log.col.host": {
+		"defaultMessage": "Host"
+	},
+	"openappsec-log.col.incident-type": {
+		"defaultMessage": "Incident Type"
+	},
+	"openappsec-log.col.matched-location": {
+		"defaultMessage": "Matched Location"
+	},
+	"openappsec-log.col.matched-parameter": {
+		"defaultMessage": "Matched Parameter"
+	},
+	"openappsec-log.col.matched-sample": {
+		"defaultMessage": "Matched Sample"
+	},
+	"openappsec-log.col.method": {
+		"defaultMessage": "Method"
+	},
+	"openappsec-log.col.service": {
+		"defaultMessage": "Service"
+	},
+	"openappsec-log.col.severity": {
+		"defaultMessage": "Severity"
+	},
+	"openappsec-log.col.source-ip": {
+		"defaultMessage": "Source IP"
+	},
+	"openappsec-log.col.time": {
+		"defaultMessage": "Time"
+	},
+	"openappsec-log.col.uri": {
+		"defaultMessage": "URI Path"
+	},
+	"openappsec-log.details.raw": {
+		"defaultMessage": "Raw"
+	},
+	"openappsec-log.details.title": {
+		"defaultMessage": "Log Entry Details"
+	},
+	"openappsec-log.tab.all": {
+		"defaultMessage": "All"
+	},
+	"openappsec-log.tab.detailed": {
+		"defaultMessage": "Detailed"
+	},
+	"openappsec-log.tab.important": {
+		"defaultMessage": "Important"
+	},
+	"openappsec-log.tab.notifications": {
+		"defaultMessage": "Notifications"
 	},
 	"openappsec-log.title": {
 		"defaultMessage": "open-appsec Logs"

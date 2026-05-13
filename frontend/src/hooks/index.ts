@@ -10,6 +10,7 @@ export * from "./useDeadHosts";
 export * from "./useDnsProviders";
 export * from "./useHealth";
 export * from "./useHostReport";
+export * from "./useOpenAppsecLogs";
 export * from "./useOpenAppsecSettings";
 export * from "./useProxyHost";
 export * from "./useProxyHosts";
