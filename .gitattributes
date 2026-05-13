@@ -1,0 +1,60 @@
+# Force LF line endings for files that must be Unix-format inside containers.
+# Without this, a clone on Windows with default core.autocrlf=true silently
+# converts these to CRLF, which breaks `#!/bin/bash` shebangs and s6 service
+# scripts at container runtime.
+
+# Docker build context (Dockerfiles, scripts, runtime configs, init scripts)
+docker/**          text eol=lf
+Dockerfile         text eol=lf
+Dockerfile.*       text eol=lf
+
+# Backend shell helpers and CI scripts
+scripts/**         text eol=lf
+*.sh               text eol=lf
+
+# Deployment manifests
+deployment/**      text eol=lf
+
+# NGINX & service configs
+*.conf             text eol=lf
+*.ini              text eol=lf
+*.yaml             text eol=lf
+*.yml              text eol=lf
+
+# Backend / migrations / schema (no need for CRLF anywhere on Unix builds)
+backend/**         text eol=lf
+
+# Frontend sources can be LF too (Vite/Biome are LF-native)
+frontend/**        text eol=lf
+
+# Binary files — never touch
+*.so               binary
+*.png              binary
+*.jpg              binary
+*.jpeg             binary
+*.gif              binary
+*.ico              binary
+*.woff             binary
+*.woff2            binary
+*.ttf              binary
+*.pdf              binary
+*.gz               binary
+*.zip              binary
+*.tar              binary
+*.tgz              binary
+*.tbz              binary
+*.bz2              binary
+*.7z               binary
+*.rar              binary
+*.jar              binary
+*.exe              binary
+*.dll              binary
+*.dylib            binary
+*.a                binary
+*.o                binary
+*.class            binary
+*.bin              binary
+*.dat              binary
+*.db               binary
+*.sqlite           binary
+*.sqlite3          binary
