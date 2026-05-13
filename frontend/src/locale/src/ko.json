@@ -398,8 +398,14 @@
 	"loading": {
 		"defaultMessage": "불러오는 중…"
 	},
+	"login.protected-by-open-appsec": {
+		"defaultMessage": "Protected by open-appsec"
+	},
 	"login.title": {
 		"defaultMessage": "로그인"
+	},
+	"menu.openAppsecLog": {
+		"defaultMessage": "open-appsec Logs"
 	},
 	"nginx-config.label": {
 		"defaultMessage": "사용자 지정 Nginx 설정"
@@ -481,6 +487,12 @@
 	},
 	"online": {
 		"defaultMessage": "활성화"
+	},
+	"openappsec-log.coming-soon": {
+		"defaultMessage": "The open-appsec log viewer is coming soon."
+	},
+	"openappsec-log.title": {
+		"defaultMessage": "open-appsec Logs"
 	},
 	"options": {
 		"defaultMessage": "옵션"
@@ -601,6 +613,18 @@
 	},
 	"settings.default-site.redirect": {
 		"defaultMessage": "리다이렉트"
+	},
+	"settings.openappsec.local-policy": {
+		"defaultMessage": "Local Policy"
+	},
+	"settings.openappsec.local-policy.description": {
+		"defaultMessage": "open-appsec YAML-based configuration file. Edits will be written to /ext/appsec/local_policy.yaml."
+	},
+	"settings.openappsec.save": {
+		"defaultMessage": "Save"
+	},
+	"settings.openappsec.title": {
+		"defaultMessage": "open-appsec"
 	},
 	"setup.preamble": {
 		"defaultMessage": "관리자 계정을 만들어 시작하세요."

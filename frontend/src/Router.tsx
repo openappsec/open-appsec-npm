@@ -12,6 +12,23 @@ import {
 } from "src/components";
 import { useAuthState } from "src/context";
 import { useHealth } from "src/hooks";
+import { T } from "src/locale";
+
+// Phase 4 placeholder; replaced by a real page in Phase 6.
+function OpenAppsecLogPlaceholder() {
+	return (
+		<div className="card mt-4">
+			<div className="card-body">
+				<h2>
+					<T id="openappsec-log.title" />
+				</h2>
+				<p className="text-secondary">
+					<T id="openappsec-log.coming-soon" />
+				</p>
+			</div>
+		</div>
+	);
+}
 
 const Setup = lazy(() => import("src/pages/Setup"));
 const Login = lazy(() => import("src/pages/Login"));
@@ -70,6 +87,8 @@ function Router() {
 							<Route path="/nginx/redirection" element={<RedirectionHosts />} />
 							<Route path="/nginx/404" element={<DeadHosts />} />
 							<Route path="/nginx/stream" element={<Streams />} />
+							{/* Placeholder for the open-appsec log viewer page; Phase 6 will replace this. */}
+							<Route path="/open-appsec-log" element={<OpenAppsecLogPlaceholder />} />
 							<Route path="/" element={<Dashboard />} />
 						</Routes>
 					</Suspense>

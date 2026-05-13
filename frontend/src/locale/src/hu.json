@@ -470,8 +470,14 @@
 	"login.2fa-verify": {
 		"defaultMessage": "Ellenőrzés"
 	},
+	"login.protected-by-open-appsec": {
+		"defaultMessage": "Protected by open-appsec"
+	},
 	"login.title": {
 		"defaultMessage": "Jelentkezzen be a fiókjába"
+	},
+	"menu.openAppsecLog": {
+		"defaultMessage": "open-appsec Logs"
 	},
 	"nginx-config.label": {
 		"defaultMessage": "Egyéni Nginx konfiguráció"
@@ -553,6 +559,12 @@
 	},
 	"online": {
 		"defaultMessage": "Online"
+	},
+	"openappsec-log.coming-soon": {
+		"defaultMessage": "The open-appsec log viewer is coming soon."
+	},
+	"openappsec-log.title": {
+		"defaultMessage": "open-appsec Logs"
 	},
 	"options": {
 		"defaultMessage": "Beállítások"
@@ -673,6 +685,18 @@
 	},
 	"settings.default-site.redirect": {
 		"defaultMessage": "Átirányítás"
+	},
+	"settings.openappsec.local-policy": {
+		"defaultMessage": "Local Policy"
+	},
+	"settings.openappsec.local-policy.description": {
+		"defaultMessage": "open-appsec YAML-based configuration file. Edits will be written to /ext/appsec/local_policy.yaml."
+	},
+	"settings.openappsec.save": {
+		"defaultMessage": "Save"
+	},
+	"settings.openappsec.title": {
+		"defaultMessage": "open-appsec"
 	},
 	"setup.preamble": {
 		"defaultMessage": "Kezdje az admin fiók létrehozásával."

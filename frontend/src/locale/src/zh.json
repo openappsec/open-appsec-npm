@@ -389,8 +389,14 @@
 	"loading": {
 		"defaultMessage": "加载中···"
 	},
+	"login.protected-by-open-appsec": {
+		"defaultMessage": "Protected by open-appsec"
+	},
 	"login.title": {
 		"defaultMessage": "登录您的账户"
+	},
+	"menu.openAppsecLog": {
+		"defaultMessage": "open-appsec Logs"
 	},
 	"nginx-config.label": {
 		"defaultMessage": "自定义 Nginx 配置"
@@ -472,6 +478,12 @@
 	},
 	"online": {
 		"defaultMessage": "在线"
+	},
+	"openappsec-log.coming-soon": {
+		"defaultMessage": "The open-appsec log viewer is coming soon."
+	},
+	"openappsec-log.title": {
+		"defaultMessage": "open-appsec Logs"
 	},
 	"options": {
 		"defaultMessage": "选项"
@@ -574,6 +586,18 @@
 	},
 	"settings.default-site.redirect": {
 		"defaultMessage": "重定向"
+	},
+	"settings.openappsec.local-policy": {
+		"defaultMessage": "Local Policy"
+	},
+	"settings.openappsec.local-policy.description": {
+		"defaultMessage": "open-appsec YAML-based configuration file. Edits will be written to /ext/appsec/local_policy.yaml."
+	},
+	"settings.openappsec.save": {
+		"defaultMessage": "Save"
+	},
+	"settings.openappsec.title": {
+		"defaultMessage": "open-appsec"
 	},
 	"setup.preamble": {
 		"defaultMessage": "通过创建您的管理员账户开始使用。"

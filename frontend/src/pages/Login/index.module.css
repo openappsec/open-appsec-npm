@@ -1,3 +1,19 @@
 .logo {
 	width: 200px;
 }
+
+.appsecBrand {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: 1rem;
+	color: var(--tblr-secondary, #808390);
+	font-size: 0.75rem;
+}
+
+.appsecLogo {
+	width: 96px;
+	height: auto;
+	opacity: 0.85;
+}

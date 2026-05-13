@@ -383,8 +383,14 @@
 	"loading": {
 		"defaultMessage": "Đang tải..."
 	},
+	"login.protected-by-open-appsec": {
+		"defaultMessage": "Protected by open-appsec"
+	},
 	"login.title": {
 		"defaultMessage": "Đăng nhập vào tài khoản của bạn"
+	},
+	"menu.openAppsecLog": {
+		"defaultMessage": "open-appsec Logs"
 	},
 	"nginx-config.label": {
 		"defaultMessage": "Cấu hình Nginx tùy chỉnh"
@@ -466,6 +472,12 @@
 	},
 	"online": {
 		"defaultMessage": "Trực tuyến"
+	},
+	"openappsec-log.coming-soon": {
+		"defaultMessage": "The open-appsec log viewer is coming soon."
+	},
+	"openappsec-log.title": {
+		"defaultMessage": "open-appsec Logs"
 	},
 	"options": {
 		"defaultMessage": "Tùy chọn"
@@ -568,6 +580,18 @@
 	},
 	"settings.default-site.redirect": {
 		"defaultMessage": "Chuyển hướng"
+	},
+	"settings.openappsec.local-policy": {
+		"defaultMessage": "Local Policy"
+	},
+	"settings.openappsec.local-policy.description": {
+		"defaultMessage": "open-appsec YAML-based configuration file. Edits will be written to /ext/appsec/local_policy.yaml."
+	},
+	"settings.openappsec.save": {
+		"defaultMessage": "Save"
+	},
+	"settings.openappsec.title": {
+		"defaultMessage": "open-appsec"
 	},
 	"setup.preamble": {
 		"defaultMessage": "Bắt đầu bằng cách tạo tài khoản quản trị viên."

@@ -371,8 +371,14 @@
 	"loading": {
 		"defaultMessage": "Chargement…"
 	},
+	"login.protected-by-open-appsec": {
+		"defaultMessage": "Protégé par open-appsec"
+	},
 	"login.title": {
 		"defaultMessage": "Connectez-vous à votre compte"
+	},
+	"menu.openAppsecLog": {
+		"defaultMessage": "Journaux open-appsec"
 	},
 	"nginx-config.label": {
 		"defaultMessage": "Configuration Nginx personnalisée"
@@ -454,6 +460,12 @@
 	},
 	"online": {
 		"defaultMessage": "En ligne"
+	},
+	"openappsec-log.coming-soon": {
+		"defaultMessage": "La visionneuse de journaux open-appsec arrive bientôt."
+	},
+	"openappsec-log.title": {
+		"defaultMessage": "Journaux open-appsec"
 	},
 	"options": {
 		"defaultMessage": "Options"
@@ -556,6 +568,18 @@
 	},
 	"settings.default-site.redirect": {
 		"defaultMessage": "Redirection"
+	},
+	"settings.openappsec.local-policy": {
+		"defaultMessage": "Politique locale"
+	},
+	"settings.openappsec.local-policy.description": {
+		"defaultMessage": "Fichier de configuration YAML d'open-appsec. Les modifications seront écrites dans /ext/appsec/local_policy.yaml."
+	},
+	"settings.openappsec.save": {
+		"defaultMessage": "Enregistrer"
+	},
+	"settings.openappsec.title": {
+		"defaultMessage": "open-appsec"
 	},
 	"setup.preamble": {
 		"defaultMessage": "Commencez par créer votre compte administrateur."

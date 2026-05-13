@@ -383,8 +383,14 @@
 	"loading": {
 		"defaultMessage": "Loading…"
 	},
+	"login.protected-by-open-appsec": {
+		"defaultMessage": "Protected by open-appsec"
+	},
 	"login.title": {
 		"defaultMessage": "アカウントにログイン"
+	},
+	"menu.openAppsecLog": {
+		"defaultMessage": "open-appsec Logs"
 	},
 	"nginx-config.label": {
 		"defaultMessage": "カスタムNginx設定"
@@ -466,6 +472,12 @@
 	},
 	"online": {
 		"defaultMessage": "Online"
+	},
+	"openappsec-log.coming-soon": {
+		"defaultMessage": "The open-appsec log viewer is coming soon."
+	},
+	"openappsec-log.title": {
+		"defaultMessage": "open-appsec Logs"
 	},
 	"options": {
 		"defaultMessage": "Options"
@@ -565,6 +577,18 @@
 	},
 	"settings.default-site.redirect": {
 		"defaultMessage": "リダイレクト"
+	},
+	"settings.openappsec.local-policy": {
+		"defaultMessage": "Local Policy"
+	},
+	"settings.openappsec.local-policy.description": {
+		"defaultMessage": "open-appsec YAML-based configuration file. Edits will be written to /ext/appsec/local_policy.yaml."
+	},
+	"settings.openappsec.save": {
+		"defaultMessage": "Save"
+	},
+	"settings.openappsec.title": {
+		"defaultMessage": "open-appsec"
 	},
 	"setup.preamble": {
 		"defaultMessage": "管理者アカウントを作成して始めましょう"

@@ -198,6 +198,16 @@ export default function Login() {
 					</div>
 				</div>
 				<div className="text-center text-secondary mt-3">{getVersion()}</div>
+				<div className={styles.appsecBrand}>
+					<img
+						className={styles.appsecLogo}
+						src="/images/open-appsec-logo.svg"
+						alt="open-appsec"
+					/>
+					<span>
+						<T id="login.protected-by-open-appsec" />
+					</span>
+				</div>
 			</div>
 		</Page>
 	);
