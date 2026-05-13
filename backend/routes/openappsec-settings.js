@@ -1,33 +1,32 @@
-const express         = require('express');
-const jwtdecode       = require('../lib/express/jwt-decode');
-const internalOpenappsecSetting = require('../internal/setting-openappsec');
+import express from "express";
+import internalOpenappsecSetting from "../internal/setting-openappsec.js";
+import jwtdecode from "../lib/express/jwt-decode.js";
 
-let router = express.Router({
+const router = express.Router({
 	caseSensitive: true,
-	strict:        true,
-	mergeParams:   true
+	strict: true,
+	mergeParams: true,
 });
 
 /**
  * /api/openappsec-settings
  */
 router
-	.route('/')
-	.options((req, res) => {
+	.route("/")
+	.options((_, res) => {
 		res.sendStatus(204);
 	})
 	.all(jwtdecode())
 
 	/**
 	 * GET /api/openappsec-settings
-	 * 
+	 *
 	 * Retrieve the open-appsec local policy.
 	 */
 	.get((req, res, next) => {
 		return internalOpenappsecSetting.getLocalPolicy(res.locals.access)
 			.then((policy) => {
-				res.status(200)
-					.send(policy);
+				res.status(200).send(policy);
 			})
 			.catch(next);
 	})
@@ -40,10 +39,9 @@ router
 	.put((req, res, next) => {
 		return internalOpenappsecSetting.updateLocalPolicy(res.locals.access, req.body)
 			.then((result) => {
-				res.status(200)
-					.send(result);
+				res.status(200).send(result);
 			})
 			.catch(next);
 	});
 
-module.exports = router;
+export default router;

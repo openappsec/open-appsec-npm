@@ -1,8 +1,8 @@
-const fs            = require('fs');
-const error         = require('../lib/error');
-const path          = require('path');
-
-const constants = require('../lib/constants');
+import fs from "node:fs";
+import path from "node:path";
+import constants from "../lib/constants.js";
+import errs from "../lib/error.js";
+import { nginx as logger } from "../logger.js";
 
 const internalOpenappsecSetting = {
 	configFilePath: path.join(constants.APPSEC_EXT_DIR, constants.APPSEC_CONFIG_FILE_NAME),
@@ -12,19 +12,19 @@ const internalOpenappsecSetting = {
 	 * @return {Promise}
 	 */
 	getLocalPolicy: (access) => {
-		return access.can('settings:list')
+		return access.can("settings:list")
 			.then(() => {
 				try {
-					const filePath = internalOpenappsecSetting.configFilePath
+					const filePath = internalOpenappsecSetting.configFilePath;
 					if (!fs.existsSync(filePath)) {
 						return;
 					}
-					const fileContent = fs.readFileSync(filePath, 'utf8');
+					const fileContent = fs.readFileSync(filePath, "utf8");
 					const jsonStr = JSON.stringify(fileContent);
 					return jsonStr;
 
 				} catch (err) {
-					console.error(err);
+					logger.error(err);
 				}
 			});
 	},
@@ -35,18 +35,18 @@ const internalOpenappsecSetting = {
 	 * @return {Promise}
 	 */
 	updateLocalPolicy: (access, data) => {
-		return access.can('settings:list')
+		return access.can("settings:list")
 			.then(() => {
-				const filePath = internalOpenappsecSetting.configFilePath
+				const filePath = internalOpenappsecSetting.configFilePath;
 				const yamlStr = data.local_policy;
-				fs.writeFileSync(filePath, yamlStr, {encoding: 'utf8'});
+				fs.writeFileSync(filePath, yamlStr, { encoding: "utf8" });
 				return true;
 			})
 			.catch((err) => {
-				console.error(err);
-				throw new error.ConfigurationError(err.message);
+				logger.error(err);
+				throw new errs.ConfigurationError(err.message);
 			});
 	}
 };
 
-module.exports = internalOpenappsecSetting;
+export default internalOpenappsecSetting;
