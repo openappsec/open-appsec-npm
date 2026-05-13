@@ -4,6 +4,7 @@ import _ from "lodash";
 import errs from "../lib/error.js";
 import { castJsonIfNeed } from "../lib/helpers.js";
 import utils from "../lib/utils.js";
+import { nginx as logger } from "../logger.js";
 import proxyHostModel from "../models/proxy_host.js";
 import internalAuditLog from "./audit-log.js";
 import internalCertificate from "./certificate.js";
@@ -54,17 +55,19 @@ const internalProxyHost = {
 				thisData.owner_user_id = access.token.getUserId(1);
 				thisData = internalHost.cleanSslHstsData(thisData);
 
-				let db_data = _.assign({}, data);
-				// Remove the openappsec fields from data. they are not in the database.
-				delete db_data.use_openappsec;
-				delete db_data.openappsec_mode;
-				delete db_data.minimum_confidence;
-				
 				// Fix for db field not having a default value
 				// for this optional field.
 				if (typeof thisData.advanced_config === "undefined") {
 					thisData.advanced_config = "";
 				}
+
+				// Build the SQL payload from the normalized thisData so it picks up
+				// cleanSslHstsData / advanced_config defaults, then strip the
+				// openappsec-only fields which are not columns on proxy_host.
+				const db_data = _.assign({}, thisData);
+				delete db_data.use_openappsec;
+				delete db_data.openappsec_mode;
+				delete db_data.minimum_confidence;
 
 				return proxyHostModel.query().insertAndFetch(db_data).then(utils.omitRow(omissions()));
 			})
@@ -104,8 +107,7 @@ const internalProxyHost = {
 						return row;
 					})
 					.catch((err) => {
-						console.log("Error generating openappsec config: " + err + err.stack);
-						// throw new error.ConfigurationError(err.message);
+						logger.error("Error generating openappsec config: " + err + (err && err.stack ? err.stack : ""));
 					});
 			})
 			.then((row) => {
@@ -196,8 +198,7 @@ const internalProxyHost = {
 						return row;
 					})
 					.catch((err) => {
-						console.log("Error generating openappsec config: " + err + err.stack);
-						// throw new error.ConfigurationError(err.message);
+						logger.error("Error generating openappsec config: " + err + (err && err.stack ? err.stack : ""));
 					});
 			})
 			.then((row) => {
@@ -212,10 +213,12 @@ const internalProxyHost = {
 
 				thisData = internalHost.cleanSslHstsData(thisData, row);
 
-				// Remove the openappsec fields from data. they are not in the database
-				delete data.use_openappsec;
-				delete data.openappsec_mode;
-				delete data.minimum_confidence;
+				// Remove the openappsec fields from the SQL payload; they are
+				// not columns on proxy_host. (Deleting from `data` here was a
+				// bug — `_.assign` above already copied them onto `thisData`.)
+				delete thisData.use_openappsec;
+				delete thisData.openappsec_mode;
+				delete thisData.minimum_confidence;
 
 				return proxyHostModel
 					.query()
@@ -339,10 +342,9 @@ const internalProxyHost = {
 					.then(() => {
 						// Delete openappsec config
 						return internalNginxOpenappsec.deleteConfig(access, row)
-						.catch((err) => {
-							throw new errs.ConfigurationError(err.message);
-						});
-						
+							.catch((err) => {
+								throw new errs.ConfigurationError(err.message);
+							});
 					})
 					.then(() => {
 						// Delete Nginx Config

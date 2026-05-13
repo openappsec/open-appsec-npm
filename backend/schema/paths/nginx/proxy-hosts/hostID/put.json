@@ -57,7 +57,7 @@
 							"$ref": "../../../../components/proxy-host-object.json#/properties/hsts_subdomains"
 						},
 						"trust_forwarded_proto": {
-    						"$ref": "../../../../components/proxy-host-object.json#/properties/trust_forwarded_proto"
+							"$ref": "../../../../components/proxy-host-object.json#/properties/trust_forwarded_proto"
 						},
 						"http2_support": {
 							"$ref": "../../../../components/proxy-host-object.json#/properties/http2_support"
@@ -86,15 +86,15 @@
 						"locations": {
 							"$ref": "../../../../components/proxy-host-object.json#/properties/locations"
 						},
-                                                "openappsec_mode": {
-                                                        "$ref": "../../../../components/proxy-host-object.json#/properties/openappsec_mode"
-                                                },
-                                                "minimum_confidence": {
-                                                        "$ref": "../../../../components/proxy-host-object.json#/properties/minimum_confidence"
-                                                },
-                                                "use_openappsec": {
-                                                        "$ref": "../../../../components/proxy-host-object.json#/properties/use_openappsec"
-                                                }
+						"openappsec_mode": {
+							"$ref": "../../../../components/proxy-host-object.json#/properties/openappsec_mode"
+						},
+						"minimum_confidence": {
+							"$ref": "../../../../components/proxy-host-object.json#/properties/minimum_confidence"
+						},
+						"use_openappsec": {
+							"$ref": "../../../../components/proxy-host-object.json#/properties/use_openappsec"
+						}
 					}
 				}
 			}
