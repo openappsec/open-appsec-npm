@@ -5,12 +5,13 @@ describe('Certificates endpoints', () => {
 	let certID;
 
 	before(() => {
+		cy.resetUsers();
 		cy.getToken().then((tok) => {
 			token = tok;
 		});
 	});
 
-	it('Validate custom certificate', function() {
+	it('Validate custom certificate', () => {
 		cy.task('backendApiPostFiles', {
 			token: token,
 			path:  '/api/nginx/certificates/validate',
@@ -25,7 +26,7 @@ describe('Certificates endpoints', () => {
 		});
 	});
 
-	it('Custom certificate lifecycle', function() {
+	it('Custom certificate lifecycle', () => {
 		// Create custom cert
 		cy.task('backendApiPost', {
 			token: token,
@@ -73,16 +74,14 @@ describe('Certificates endpoints', () => {
 		});
 	});
 
-	it('Request Certificate - CVE-2024-46256/CVE-2024-46257', function() {
+	it('Request Certificate - CVE-2024-46256/CVE-2024-46257', () => {
 		cy.task('backendApiPost', {
 			token: token,
 			path:  '/api/nginx/certificates',
 			data:  {
 				domain_names: ['test.com"||echo hello-world||\\\\n test.com"'],
 				meta:         {
-					dns_challenge:     false,
-					letsencrypt_agree: true,
-					letsencrypt_email: 'admin@example.com',
+					dns_challenge: false,
 				},
 				provider: 'letsencrypt',
 			},

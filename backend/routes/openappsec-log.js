@@ -1,19 +1,19 @@
-const express          = require('express');
-const jwtdecode        = require('../lib/express/jwt-decode');
-const internalOpenappsecLog = require('../internal/openappsec-log');
+import express from "express";
+import internalOpenappsecLog from "../internal/openappsec-log.js";
+import jwtdecode from "../lib/express/jwt-decode.js";
 
-let router = express.Router({
+const router = express.Router({
 	caseSensitive: true,
-	strict:        true,
-	mergeParams:   true
+	strict: true,
+	mergeParams: true,
 });
 
 /**
  * /api/openappsec-log
  */
 router
-	.route('/')
-	.options((req, res) => {
+	.route("/")
+	.options((_, res) => {
 		res.sendStatus(204);
 	})
 	.all(jwtdecode())
@@ -26,10 +26,9 @@ router
 	.get((req, res, next) => {
 		return internalOpenappsecLog.getAll(res.locals.access)
 			.then((policy) => {
-				res.status(200)
-					.send(policy);
+				res.status(200).send(policy);
 			})
 			.catch(next);
 	});
 
-module.exports = router;
+export default router;

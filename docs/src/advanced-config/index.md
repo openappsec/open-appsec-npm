@@ -161,6 +161,14 @@ The easy fix is to add a Docker environment variable to the Nginx Proxy Manager 
       DISABLE_IPV6: 'true'
 ```
 
+## Disabling IP Ranges Fetch
+
+By default, NPM fetches IP ranges from CloudFront and Cloudflare during application startup. In environments with limited internet access or to speed up container startup, this fetch can be disabled:
+
+```yml
+    environment:
+      IP_RANGES_FETCH_ENABLED: 'false'
+```
 
 ## Custom Nginx Configurations
 
@@ -219,4 +227,14 @@ To enable the geoip2 module, you can create the custom configuration file `/data
 ```
 load_module /usr/lib/nginx/modules/ngx_http_geoip2_module.so;
 load_module /usr/lib/nginx/modules/ngx_stream_geoip2_module.so;
+```
+
+## Auto Initial User Creation
+
+Setting these environment variables will create the default user on startup, skipping the UI first user setup screen:
+
+```
+    environment:
+      INITIAL_ADMIN_EMAIL: my@example.com
+      INITIAL_ADMIN_PASSWORD: mypassword1
 ```
